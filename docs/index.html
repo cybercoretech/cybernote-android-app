@@ -4,13 +4,25 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#070c12">
   <meta name="description" content="Cybernote for Android: an offline-first Markdown notebook with fast capture, encrypted sync options, and the same vault you use on desktop.">
   <title>Cybernote Android — every thought, within reach</title><link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="https://cybercoretech.github.io/kit/chooser.css">
+  <script>window.SITE = Object.assign(window.SITE || {}, {"siteLabel": "Cyan", "themeVars": {"panel": "--surface", "white": "--text", "cyan": "--accent", "hot_pink": "--secondary"}});</script>
+  <script type="module" src="https://cybercoretech.github.io/kit/chooser.js"></script>
+  <script>
+    /* Cybernote's derived shades follow the universal chooser's palette. */
+    document.addEventListener('cc:theme', function (e) {
+      var p = e.detail && e.detail.palette, r = document.documentElement;
+      if (!p) { ['--surface2', '--glow'].forEach(function (v) { r.style.removeProperty(v); }); return; }
+      r.style.setProperty('--surface2', 'color-mix(in srgb, #' + p.panel + ' 82%, #' + p.white + ')');
+      r.style.setProperty('--glow', 'color-mix(in srgb, #' + p.cyan + ' 16%, transparent)');
+    });
+  </script>
 </head>
 <body>
   <div class="flow-field" aria-hidden="true"></div>
   <div class="ambient ambient-a" aria-hidden="true"></div><div class="ambient ambient-b" aria-hidden="true"></div>
   <header class="topbar wrap"><a class="brand" href="#top"><span class="brand-mark">✦</span> CYBERNOTE <span class="platform-label">/ ANDROID</span></a>
     <nav aria-label="Main navigation"><a href="#experience">Experience</a><a href="#privacy">Privacy</a><a href="#roadmap">Roadmap</a><a href="https://github.com/cybercoretech/cybernote-android-app">GitHub ↗</a><a data-cybercore-master-docs href="https://cybercoretech.github.io/cybercore/docs.html" style="color:#22e6ff;border:1px solid #263454;border-radius:999px;padding:7px 12px;text-decoration:none;font:600 .7rem ui-monospace,monospace;letter-spacing:.08em;white-space:nowrap">MASTER DOCS ↗</a></nav>
-    <button class="theme-trigger" id="theme-open" aria-haspopup="dialog">🎨 <span>Theme lab</span></button>
+    <cybercore-theme-chooser adopt><button class="theme-trigger" id="theme-open" type="button">Cyan</button></cybercore-theme-chooser>
   </header>
   <main id="top">
     <section class="hero wrap"><div class="hero-copy"><p class="eyebrow"><span class="pulse"></span> OFFLINE FIRST · POCKET READY</p><h1>Catch the thought.<br><span class="gradient-text">Keep the thread.</span></h1>
@@ -37,7 +49,6 @@
     <div style="width:min(1160px,calc(100% - 44px));margin-inline:auto"><cybercore-contact><a href="mailto:dev@cybercoretech.net">dev@cybercoretech.net</a></cybercore-contact></div>
   </section>
   <footer class="wrap footer"><a class="brand" href="#top"><span class="brand-mark">✦</span> CYBERNOTE <span class="platform-label">/ ANDROID</span></a><p>Built by <a href="https://github.com/cybercoretech">Cybercore</a> · app not released yet</p><div><a href="APP_SPEC.md">App spec</a><a href="ROADMAP.md">Roadmap</a><a href="https://github.com/cybercoretech/cybernote-android-app/blob/main/LICENSE">MIT License</a></div></footer>
-  <dialog id="theme-dialog" class="modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button><p class="eyebrow">🎨 CYBERCORE THEME CHOOSER</p><h2>Choose your mobile mood.</h2><p class="modal-copy">The Android app will share these palettes and adapt them to native controls.</p><div class="theme-options"><button class="theme-option" data-theme-choice="cyan"><i></i><b>Neon Cyan</b><small>Electric · signature</small></button><button class="theme-option" data-theme-choice="plasma"><i></i><b>Plasma</b><small>Violet · ion teal</small></button><button class="theme-option" data-theme-choice="ember"><i></i><b>Ember</b><small>Heat · magenta</small></button><button class="theme-option" data-theme-choice="bio"><i></i><b>Biohazard</b><small>Acid · bio teal</small></button></div><p class="modal-hint">Preview saved on this device · native app is planned.</p></form></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div><script src="site.js"></script>
   <script type="module" src="https://cybercoretech.github.io/kit/contact.js"></script>
 </body>
